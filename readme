@@ -28,6 +28,7 @@ The third child gets 1 candy because it satisfies the above two conditions.
 Among all LeetCode problems encountered thus far, this one looks like mathematically analytic problem most. Therefore, I design analytic style solution.
 
 Find the first longest decreasing segment, then hills (consisting of left valley, peak, right valley). Finally the last segment.
+Two types of variables play key roles.
 (P1) Indicators : i_up (monotone increasing), i_down (monotone decreasing), i_peak (the peak of a hill), i_valley_r (the right valley), i_dup_near_peak_l (duplicated elements near the peak to the left), i_dup_near_peak_r (duplicated elements near the peak to the right)
 (P2) Index : id_l (index of left valley), id_m (index of the peak), id_r (index of right valley), id_dup_l (index of duplicated element nearest to the peak to the left), id_dup_r (index of duplicated element nearest to the peak to the right)
 
