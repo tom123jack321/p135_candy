@@ -1,0 +1,47 @@
+Analytic solution to LeetCode problem "135. Candy"
+
+1. Description 
+See https://leetcode.com/problems/candy/description/?envType=study-plan-v2&envId=top-interview-150 or below.
+The problem is marked "Hard". It's hard in that the numbers of candy should be reset to 1 when duplicated elements are encounter unless the right hand side element has smaller rating.
+
+There are n children standing in a line. Each child is assigned a rating value given in the integer array ratings.
+
+You are giving candies to these children subjected to the following requirements:
+
+    Each child must have at least one candy.
+    Children with a higher rating get more candies than their neighbors.
+
+Return the minimum number of candies you need to have to distribute the candies to the children.
+ 
+Example 1:
+Input: ratings = [1,0,2]
+Output: 5
+Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively.
+
+Example 2:
+Input: ratings = [1,2,2]
+Output: 4
+Explanation: You can allocate to the first, second and third child with 1, 2, 1 candies respectively.
+The third child gets 1 candy because it satisfies the above two conditions.
+
+2. My solution
+Among all LeetCode problems encountered thus far, this one looks like mathematically analytic problem most. Therefore, I design analytic style solution.
+
+Find the first longest decreasing segment, then hills (consisting of left valley, peak, right valley). Finally the last segment.
+(P1) Indicators : i_up (monotone increasing), i_down (monotone decreasing), i_peak (the peak of a hill), i_valley_r (the right valley), i_dup_near_peak_l (duplicated elements near the peak to the left), i_dup_near_peak_r (duplicated elements near the peak to the right)
+(P2) Index : id_l (index of left valley), id_m (index of the peak), id_r (index of right valley), id_dup_l (index of duplicated element nearest to the peak to the left), id_dup_r (index of duplicated element nearest to the peak to the right)
+
+3. Complexity
+Each index is visited only once and candies of each element are counted only once, so the time complexity is O(n).
+
+4. Results
+Submitted to LeetCode and passed all tests with 10ms runtime (beats 90.58% of users with c++) and 19.98MB memory (beats 75.81% of users with c++). The memory can be reduced by changing integer vector "spot" to bool vector.
+
+5. Troubleshooting
+I share this for fun with no warranty absolutely. Should anyone find any bugs, please email me.
+
+6. Author
+Yiyi HUANG (yhuangcm@connect.ust.hk)
+
+7. License
+GPL-3.0
